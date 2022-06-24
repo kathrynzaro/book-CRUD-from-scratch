@@ -20,7 +20,6 @@ export default function AuthPage({ setUser }) {
     e.preventDefault();
 
     const user = await signIn(signInEmail, signInPassword);
-    console.log(user);
 
     setUser(user);
   }

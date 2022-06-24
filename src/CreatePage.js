@@ -1,8 +1,49 @@
 import React from 'react';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { createBook } from './services/fetch-utils';
 
 export default function CreatePage() {
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [year, setYear] = useState('');
+  const { push } = useHistory();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const book = await createBook({
+      title: title,
+      author: author,
+      year: year
+    });
+
+    console.log(book);
+
+    setAuthor('');
+    setTitle('');
+    setYear('');
+
+    push('/books');
+  }
+
   return (
-    <div>CreatePage</div>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Title
+          <input onChange={e => setTitle(e.target.value)} value={title} />
+        </label>
+        <label>
+          Author
+          <input onChange={e => setAuthor(e.target.value)} value={author} />
+        </label>
+        <label>
+          Year
+          <input onChange={e => setYear(e.target.value)} value={year} />
+        </label>
+        <button>Create</button>
+      </form>
+    </div>
   );
 }
 
