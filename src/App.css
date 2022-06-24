@@ -1,5 +1,8 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bangers&family=Chicle&family=Comfortaa:wght@300&family=Creepster&family=Great+Vibes&family=Griffy&family=IM+Fell+French+Canon&family=IM+Fell+French+Canon+SC&family=Inconsolata:wght@200&family=Irish+Grover&family=Josefin+Sans&family=Karla&family=Limelight&family=Montserrat+Subrayada:wght@400;700&family=Montserrat:wght@400;700&family=Neonderthaw&family=Nixie+One&family=Oswald&family=Philosopher:wght@400;700&family=Poiret+One&family=Press+Start+2P&family=Raleway:wght@100&family=Roboto+Mono:wght@100&family=Rye&family=Slabo+27px&family=Space+Mono&family=Spectral&family=Tenor+Sans&family=Ultra&family=Unica+One&family=VT323&family=Varela+Round&family=Yeseva+One&display=swap');
+
+.App, html, body {
+  /* text-align: center; */
+  font-family: 'Space Mono', monospace;
 }
 
 ul {
@@ -13,7 +16,18 @@ ul li {
   text-decoration: none;
 }
 
-.auth {
+h1 {
+  /* font-family: 'Rye', cursive; */
+  text-transform: uppercase;
+}
+
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-forms {
   display: flex;
 }
 
@@ -21,11 +35,10 @@ form {
   display: flex;
   flex-direction: column;
   width: 200px;
-  height: 200px;
   align-items: flex-start;
   justify-content: space-between;
   padding: 10px;
-  border: 3px solid black;
+  border: 1px solid black;
   border-radius: 10px;
   margin: 10px;
 }
@@ -33,4 +46,43 @@ form {
 label {
   display: flex;
   flex-direction: column;
+  font-family: 'Space Mono', monospace;
+}
+
+button {
+  font-family: 'Space Mono', monospace;  
+  text-transform: uppercase;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+nav li {
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  background-color: white;
+  border-radius: 4px;
+  
+}
+
+li:hover {
+  opacity: .5;
+}
+
+button:hover {
+  opacity: .5;
+  cursor: pointer;
+}
+
+form button {
+  margin: 15px 0;
+}
+
+input {
+  margin-bottom: 15px;
+}
+
+nav button {
+  border: none;
+  font-size: 1rem;
 }

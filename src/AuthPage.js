@@ -1,31 +1,47 @@
 import React from 'react';
+import { useState } from 'react';
+import { signUp } from './services/fetch-utils';
 
-export default function AuthPage() {
+export default function AuthPage({ setUser }) {
+  const [signUpEmail, setSignUpEmail] = useState('');
+  const [signUpPassword, setSignUpPassword] = useState('');
+  const [signInEmail, setSignInEmail] = useState('');
+  const [signInPassword, setSignInPassword] = useState('');
+
+  async function handleSignUpSubmit(e) {
+    e.preventDefault();
+
+    const user = await signUp(signUpEmail, signUpPassword);
+    console.log(user);
+
+    setUser(user);
+  }
+
   return (
-    <div>
-      <h2>Boooooks</h2>
-      <div className='auth'>
-        <form>
-          <h4>Sign Up</h4>
+    <div className='auth-page'>
+      <h1>Boooooks</h1>
+      <div className='auth-forms'>
+        <form onSubmit={handleSignUpSubmit}>
+          <h3>Sign Up</h3>
           <label>
             Email
-            <input></input>
+            <input onChange={e => setSignUpEmail(e.target.value)} value={signUpEmail} type="email"></input>
           </label>
           <label>
             Password
-            <input></input>
+            <input onChange={e => setSignUpPassword(e.target.value)} value={signUpPassword} type="password"></input>
           </label>
           <button>Sign Up</button>
         </form>
         <form>
-          <h4>Sign In</h4>
+          <h3>Sign In</h3>
           <label>
             Email
-            <input></input>
+            <input onChange={e => setSignInEmail(e.target.value)} value={signInEmail} type="email"></input>
           </label>
           <label>
             Password
-            <input></input>
+            <input onChange={e => setSignInPassword(e.target.value)} value={signInPassword} type="password"></input>
           </label>
           <button>Sign In</button>
         </form>

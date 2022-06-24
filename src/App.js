@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,26 +11,29 @@ import AuthPage from './AuthPage';
 import CreatePage from './CreatePage';
 import ListPage from './ListPage';
 import UpdatePage from './UpdatePage';
+import { client } from './services/client';
 
 import './App.css';
 
 export default function App() {
+  const [user, setUser] = useState(client.auth.user());
+
   return (
     <Router>
       <div>
         <nav>
           <ul>
             <li>
-              <Link style={{ textDecoration: 'none' }} to="/">Sign In</Link>
+              <Link style={{ textDecoration: 'none', color: 'black' }} to="/">Sign In</Link>
             </li>
             <li>
-              <Link style={{ textDecoration: 'none' }} to="/create">Create</Link>
+              <Link style={{ textDecoration: 'none', color: 'black' }} to="/create">Create</Link>
             </li>
             <li>
-              <Link style={{ textDecoration: 'none' }} to="/books/1">Update</Link>
+              <Link style={{ textDecoration: 'none', color: 'black' }} to="/books/1">Update</Link>
             </li>
             <li>
-              <Link style={{ textDecoration: 'none' }} to="/books">Books List</Link>
+              <Link style={{ textDecoration: 'none', color: 'black' }} to="/books">Books List</Link>
             </li>
             <li>
               <button>Logout</button>
@@ -37,11 +41,13 @@ export default function App() {
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route exact path="/">
-            <AuthPage />
+            {
+              !user
+                ? <AuthPage setUser={setUser} />
+                : <Redirect to="/books" />
+            }
           </Route>
           <Route exact path="/books/:id">
             <UpdatePage />
