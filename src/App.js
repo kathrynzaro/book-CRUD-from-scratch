@@ -12,11 +12,16 @@ import CreatePage from './CreatePage';
 import ListPage from './ListPage';
 import UpdatePage from './UpdatePage';
 import { client } from './services/client';
-
+import { logout } from './services/fetch-utils';
 import './App.css';
 
 export default function App() {
   const [user, setUser] = useState(client.auth.user());
+
+  async function handleLogout() {
+    await logout();
+    setUser('');
+  }
 
   return (
     <Router>
@@ -36,7 +41,7 @@ export default function App() {
               <Link style={{ textDecoration: 'none', color: 'black' }} to="/books">Books List</Link>
             </li>
             <li>
-              <button>Logout</button>
+              <button onClick={handleLogout}>Logout</button>
             </li>
           </ul>
         </nav>
@@ -53,7 +58,11 @@ export default function App() {
             <UpdatePage />
           </Route>
           <Route exact path="/books">
-            <ListPage />
+            {
+              user
+                ? <ListPage />
+                : <Redirect to="/" />
+            }
           </Route>
           <Route exact path="/create">
             <CreatePage />
