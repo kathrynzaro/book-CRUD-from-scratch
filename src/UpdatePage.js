@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { getBookById, updateBook } from './services/fetch-utils';
+import { getBookById, updateBook, deleteBook } from './services/fetch-utils';
 
 export default function UpdatePage() {
   const [title, setTitle] = useState('');
@@ -38,6 +38,12 @@ export default function UpdatePage() {
     push('/books');
   }
 
+  async function handleDelete() {
+    await deleteBook(id);
+
+    push('/books');
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -55,6 +61,7 @@ export default function UpdatePage() {
         </label>
         <button>Update</button>
       </form>
+      <button onClick={handleDelete} className='delete'>Delete</button>
     </div>
   );
 }

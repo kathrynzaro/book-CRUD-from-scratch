@@ -58,3 +58,13 @@ export async function updateBook(book, id) {
   
   return data;
 }
+
+export async function deleteBook(id) {
+  const { data, error } = await client
+    .from('books')
+    .delete()
+    .match({ id: id })
+    .single();
+  
+  return data;
+}
