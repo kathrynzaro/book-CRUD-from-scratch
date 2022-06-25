@@ -7,13 +7,18 @@ export default function AuthPage({ setUser }) {
   const [signUpPassword, setSignUpPassword] = useState('');
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
+  const [error, setError] = useState('');
 
   async function handleSignUpSubmit(e) {
     e.preventDefault();
-
-    const user = await signUp(signUpEmail, signUpPassword);
-
-    setUser(user);
+    
+    try {
+      const user = await signUp(signUpEmail, signUpPassword);
+  
+      setUser(user);
+    } catch (e) {
+      setError(e.message);
+    }
   }
   
   async function handleSignInSubmit(e) {
@@ -27,6 +32,7 @@ export default function AuthPage({ setUser }) {
   return (
     <div className='auth-page'>
       <h1>Boooooks</h1>
+      <h3 className='error'>{error}</h3>
       <div className='auth-forms'>
         <form onSubmit={handleSignUpSubmit}>
           <h3>Sign Up</h3>

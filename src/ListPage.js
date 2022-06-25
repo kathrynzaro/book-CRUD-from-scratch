@@ -16,10 +16,13 @@ export default function ListPage() {
   }, []);
 
   return (
-    <div className='books-list'>
-      {
-        books.map((book, i) => <Book book={book} key={book.author + i + book.title} />)
-      }
+    <div className='list-page'>
+      <h2>my books</h2>
+      <div className='books-list'>
+        {
+          books.map((book, i) => <Book book={book} key={book.author + i + book.title} />)
+        }
+      </div>
     </div>
   );
 }

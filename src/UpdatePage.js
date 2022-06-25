@@ -45,7 +45,8 @@ export default function UpdatePage() {
   }
 
   return (
-    <div>
+    <div className='update'>
+      <h2>Update Book</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Title
@@ -61,7 +62,7 @@ export default function UpdatePage() {
         </label>
         <button>Update</button>
       </form>
-      <button onClick={handleDelete} className='delete'>Delete</button>
+      <button onClick={handleDelete} className='delete-btn'>Delete</button>
     </div>
   );
 }

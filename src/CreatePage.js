@@ -11,14 +11,12 @@ export default function CreatePage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    
-    const book = await createBook({
+
+    await createBook({
       title: title,
       author: author,
       year: year
     });
-
-    console.log(book);
 
     setAuthor('');
     setTitle('');
@@ -28,7 +26,8 @@ export default function CreatePage() {
   }
 
   return (
-    <div>
+    <div className='create'>
+      <h2>create a book</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Title

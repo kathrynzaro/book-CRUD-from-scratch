@@ -1,12 +1,17 @@
 import { client } from './client';
 
 export async function signUp(email, password) {
-  const { user } = await client.auth.signUp({
+  const { user, error } = await client.auth.signUp({
     email: email,
     password: password,
   });
 
-  return user;
+  if (error) {
+    throw error;
+  } else {
+    return user;
+  }
+
 }
 
 export async function signIn(email, password) {
@@ -19,7 +24,7 @@ export async function signIn(email, password) {
 }
 
 export async function logout() {
-  const { error } = await client.auth.signOut();
+  await client.auth.signOut();
 }
 
 export async function createBook(book) {
@@ -32,7 +37,7 @@ export async function createBook(book) {
 }
 
 export async function getBooks() {
-  const { data, error } = await client
+  const { data } = await client
     .from('books')
     .select('*');
   
@@ -40,7 +45,7 @@ export async function getBooks() {
 }
 
 export async function getBookById(id) {
-  const { data, error } = await client
+  const { data } = await client
     .from('books')
     .select('*')
     .match({ id })
@@ -50,7 +55,7 @@ export async function getBookById(id) {
 }
 
 export async function updateBook(book, id) {
-  const { data, error } = await client
+  const { data } = await client
     .from('books')
     .update(book)
     .match({ id })
@@ -60,7 +65,7 @@ export async function updateBook(book, id) {
 }
 
 export async function deleteBook(id) {
-  const { data, error } = await client
+  const { data } = await client
     .from('books')
     .delete()
     .match({ id: id })

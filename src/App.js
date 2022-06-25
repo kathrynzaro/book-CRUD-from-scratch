@@ -26,25 +26,25 @@ export default function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link style={{ textDecoration: 'none', color: 'black' }} to="/">Sign In</Link>
-            </li>
-            <li>
-              <Link style={{ textDecoration: 'none', color: 'black' }} to="/create">Create</Link>
-            </li>
-            <li>
-              <Link style={{ textDecoration: 'none', color: 'black' }} to="/books/:id">Update</Link>
-            </li>
-            <li>
-              <Link style={{ textDecoration: 'none', color: 'black' }} to="/books">Books List</Link>
-            </li>
-            <li>
-              <button onClick={handleLogout}>Logout</button>
-            </li>
-          </ul>
-        </nav>
+        {
+          user &&
+          <nav>
+            <ul>
+              <li>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to="/create">Create</Link>
+              </li>
+              {/* <li>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to="/books/:id">Update</Link>
+              </li> */}
+              <li>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to="/books">Books List</Link>
+              </li>
+              <li>
+                {user && <button onClick={handleLogout}>Logout</button>}
+              </li>
+            </ul>
+          </nav>
+        }
 
         <Switch>
           <Route exact path="/">
