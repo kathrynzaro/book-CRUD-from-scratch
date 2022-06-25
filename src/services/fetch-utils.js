@@ -23,9 +23,37 @@ export async function logout() {
 }
 
 export async function createBook(book) {
-  const { data, error } = await client
+  const { data } = await client
     .from('books')
     .insert(book)
+    .single();
+  
+  return data;
+}
+
+export async function getBooks() {
+  const { data, error } = await client
+    .from('books')
+    .select('*');
+  
+  return data;
+}
+
+export async function getBookById(id) {
+  const { data, error } = await client
+    .from('books')
+    .select('*')
+    .match({ id })
+    .single();
+  
+  return data;
+}
+
+export async function updateBook(book, id) {
+  const { data, error } = await client
+    .from('books')
+    .update(book)
+    .match({ id })
     .single();
   
   return data;

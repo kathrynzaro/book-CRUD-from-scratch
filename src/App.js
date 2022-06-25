@@ -35,7 +35,7 @@ export default function App() {
               <Link style={{ textDecoration: 'none', color: 'black' }} to="/create">Create</Link>
             </li>
             <li>
-              <Link style={{ textDecoration: 'none', color: 'black' }} to="/books/1">Update</Link>
+              <Link style={{ textDecoration: 'none', color: 'black' }} to="/books/:id">Update</Link>
             </li>
             <li>
               <Link style={{ textDecoration: 'none', color: 'black' }} to="/books">Books List</Link>

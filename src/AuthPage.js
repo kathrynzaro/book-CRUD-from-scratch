@@ -32,11 +32,11 @@ export default function AuthPage({ setUser }) {
           <h3>Sign Up</h3>
           <label>
             Email
-            <input onChange={e => setSignUpEmail(e.target.value)} value={signUpEmail} type="email"></input>
+            <input onChange={e => setSignUpEmail(e.target.value)} value={signUpEmail} type="email" />
           </label>
           <label>
             Password
-            <input onChange={e => setSignUpPassword(e.target.value)} value={signUpPassword} type="password"></input>
+            <input onChange={e => setSignUpPassword(e.target.value)} value={signUpPassword} type="password" />
           </label>
           <button>Sign Up</button>
         </form>
@@ -44,11 +44,11 @@ export default function AuthPage({ setUser }) {
           <h3>Sign In</h3>
           <label>
             Email
-            <input onChange={e => setSignInEmail(e.target.value)} value={signInEmail} type="email"></input>
+            <input onChange={e => setSignInEmail(e.target.value)} value={signInEmail} type="email" />
           </label>
           <label>
             Password
-            <input onChange={e => setSignInPassword(e.target.value)} value={signInPassword} type="password"></input>
+            <input onChange={e => setSignInPassword(e.target.value)} value={signInPassword} type="password" />
           </label>
           <button>Sign In</button>
         </form>

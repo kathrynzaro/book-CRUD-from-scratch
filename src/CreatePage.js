@@ -11,6 +11,7 @@ export default function CreatePage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    
     const book = await createBook({
       title: title,
       author: author,
