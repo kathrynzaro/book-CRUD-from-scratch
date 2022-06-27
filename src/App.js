@@ -1,25 +1,88 @@
-import logo from './logo.svg';
+import React from 'react';
+import { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from 'react-router-dom';
+import AuthPage from './AuthPage';
+import CreatePage from './CreatePage';
+import ListPage from './ListPage';
+import UpdatePage from './UpdatePage';
+import { client } from './services/client';
+import { logout } from './services/fetch-utils';
 import './App.css';
 
-function App() {
+export default function App() {
+  const [user, setUser] = useState(client.auth.user());
+
+  async function handleLogout() {
+    await logout();
+    setUser('');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        {
+          user &&
+          <nav>
+            <ul>
+              <li>
+                <Link style={{ textDecoration: 'none' }} to="/create">Create</Link>
+              </li>
+              {/* <li>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to="/books/:id">Update</Link>
+              </li> */}
+              <li>
+                <Link style={{ textDecoration: 'none' }} to="/books">Books List</Link>
+              </li>
+              <li>
+                {user && <button onClick={handleLogout}>Logout</button>}
+              </li>
+            </ul>
+          </nav>
+        }
+
+        <Switch>
+          <Route exact path="/">
+            {
+              !user
+                ? <AuthPage setUser={setUser} />
+                : <Redirect to="/books" />
+            }
+          </Route>
+          <Route exact path="/books/:id">
+            {
+              user
+                ? <UpdatePage />
+                : <Redirect to="/" />
+            }
+          </Route>
+          <Route exact path="/books">
+            {
+              user
+                ? <ListPage />
+                : <Redirect to="/" />
+            }
+          </Route>
+          <Route exact path="/create">
+            {
+              user
+                ? <CreatePage />
+                : <Redirect to="/" />
+            }
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+
+// App() : contains routes for home/auth page, create, items/:id, /items	1
+// App() : tracks user state, passing the setUser callback to the AuthPage	1
+// App(): If user is logged in, header contains logout button and links to the Create and List pages.	1
+// App(): Use a ternary to decide whether to let users visit particular routes, depending on whether there is a user in App.js state

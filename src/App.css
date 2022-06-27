@@ -1,38 +1,204 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bangers&family=Chicle&family=Comfortaa:wght@300&family=Creepster&family=Great+Vibes&family=Griffy&family=IM+Fell+French+Canon&family=IM+Fell+French+Canon+SC&family=Inconsolata:wght@200&family=Irish+Grover&family=Josefin+Sans&family=Karla&family=Limelight&family=Montserrat+Subrayada:wght@400;700&family=Montserrat:wght@400;700&family=Neonderthaw&family=Nixie+One&family=Oswald&family=Philosopher:wght@400;700&family=Poiret+One&family=Press+Start+2P&family=Raleway:wght@100&family=Roboto+Mono:wght@100&family=Rye&family=Slabo+27px&family=Sora:wght@400;700&family=Space+Mono&family=Spectral&family=Tenor+Sans&family=Ultra&family=Unica+One&family=VT323&family=Varela+Round&family=Yeseva+One&display=swap');
+
+body {
+  /* CSS HEX */
+    --orange-peel: #ff9f1cff;
+    --mellow-apricot: #ffbf69ff;
+    --white: #ffffffff;
+    --light-cyan: #cbf3f0ff;
+    --tiffany-blue: #2ec4b6ff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App, html, body, #root {
+  /* text-align: center; */
+  font-family: 'Sora', sans-serif;
+  background-color: white;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
+  width: 100%;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+ul li {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Sora', sans-serif;
+  font-size: 2.7rem;
+  letter-spacing: 3px;
+}
+
+.auth-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.auth-forms {
+  display: flex;
+  padding: 15px 35px;
+  background-color: var(--light-cyan);
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 15px;
+  padding: 25px;
+  background-color: var(--light-cyan);
+  border-radius: 5px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Sora', sans-serif;
+  margin-top: 20px;
+}
+
+button {
+  font-family: 'Sora', sans-serif;
+  text-transform: uppercase;
+  background-color: black;
+  color: lightcyan;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+nav {
+  height: 80px;
+  box-shadow: 0px 1px 10px black;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+nav li a {
+  font-family: 'Sora', sans-serif;
+  text-transform: uppercase;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+li:hover {
+  opacity: .5;
+}
+
+button:hover {
+  background-color: var(--orange-peel);
+  cursor: pointer;
+}
+
+form button {
+  margin: 15px 0;
+}
+
+input {
+  margin-bottom: 15px;
+  margin-top: 5px;
+  font-family: 'Sora', sans-serif;
+  border: 1px solid gray;
+  border-radius: 2px;
+  padding: 5px;
+  background-color: white;
+}
+
+nav button {
+  border: none;
+  font-size: 1rem;
+  color: black;
+  background-color: white;
+}
+
+.book-data {
+  color: black;
+  width: 140px;
+  height: 190px;
+  background-color: var(--light-cyan);
+  border-radius: 3px;
+  padding: 20px;
+  margin: 10px;
+  line-height: 23px;
+}
+
+.book-data:hover {
+  background-color: var(--mellow-apricot);
+}
+
+.list-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.books-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.update {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.delete-btn {
+  opacity: .6;
   color: white;
+  background-color: var(--tiffany-blue);
+  font-weight: 600;
+  padding: 5px;
+  letter-spacing: 1px;
 }
 
-.App-link {
-  color: #61dafb;
+.delete-btn:hover {
+  background-color: var(--orange-peel);
+  opacity: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error {
+  text-transform: lowercase;
+  color: indianred;
+}
+
+h2 {
+  letter-spacing: 3px;
+  font-family: 'Sora', sans-serif;
+  font-size: 2rem;
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
 }
