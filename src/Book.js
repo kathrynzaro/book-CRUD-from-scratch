@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export function Book({ book }) {
   return <Link style={{ textDecoration: 'none' }} to={`/books/${book.id}`} >
-    <p className='book-data'>{book.title} written by {book.author} and published in {book.year}</p>
+    <p className='book-data'>{book.title} by {book.author} published in {book.year}</p>
   </Link>;
 }
 

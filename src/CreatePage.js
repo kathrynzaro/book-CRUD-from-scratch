@@ -27,7 +27,7 @@ export default function CreatePage() {
 
   return (
     <div className='create'>
-      <h2>create a book</h2>
+      <h2>Create a Book</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Title

@@ -31,13 +31,13 @@ export default function App() {
           <nav>
             <ul>
               <li>
-                <Link style={{ textDecoration: 'none', color: 'black' }} to="/create">Create</Link>
+                <Link style={{ textDecoration: 'none' }} to="/create">Create</Link>
               </li>
               {/* <li>
                 <Link style={{ textDecoration: 'none', color: 'black' }} to="/books/:id">Update</Link>
               </li> */}
               <li>
-                <Link style={{ textDecoration: 'none', color: 'black' }} to="/books">Books List</Link>
+                <Link style={{ textDecoration: 'none' }} to="/books">Books List</Link>
               </li>
               <li>
                 {user && <button onClick={handleLogout}>Logout</button>}

@@ -1,8 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bangers&family=Chicle&family=Comfortaa:wght@300&family=Creepster&family=Great+Vibes&family=Griffy&family=IM+Fell+French+Canon&family=IM+Fell+French+Canon+SC&family=Inconsolata:wght@200&family=Irish+Grover&family=Josefin+Sans&family=Karla&family=Limelight&family=Montserrat+Subrayada:wght@400;700&family=Montserrat:wght@400;700&family=Neonderthaw&family=Nixie+One&family=Oswald&family=Philosopher:wght@400;700&family=Poiret+One&family=Press+Start+2P&family=Raleway:wght@100&family=Roboto+Mono:wght@100&family=Rye&family=Slabo+27px&family=Space+Mono&family=Spectral&family=Tenor+Sans&family=Ultra&family=Unica+One&family=VT323&family=Varela+Round&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bangers&family=Chicle&family=Comfortaa:wght@300&family=Creepster&family=Great+Vibes&family=Griffy&family=IM+Fell+French+Canon&family=IM+Fell+French+Canon+SC&family=Inconsolata:wght@200&family=Irish+Grover&family=Josefin+Sans&family=Karla&family=Limelight&family=Montserrat+Subrayada:wght@400;700&family=Montserrat:wght@400;700&family=Neonderthaw&family=Nixie+One&family=Oswald&family=Philosopher:wght@400;700&family=Poiret+One&family=Press+Start+2P&family=Raleway:wght@100&family=Roboto+Mono:wght@100&family=Rye&family=Slabo+27px&family=Sora:wght@400;700&family=Space+Mono&family=Spectral&family=Tenor+Sans&family=Ultra&family=Unica+One&family=VT323&family=Varela+Round&family=Yeseva+One&display=swap');
+
+body {
+  /* CSS HEX */
+    --orange-peel: #ff9f1cff;
+    --mellow-apricot: #ffbf69ff;
+    --white: #ffffffff;
+    --light-cyan: #cbf3f0ff;
+    --tiffany-blue: #2ec4b6ff;
+}
 
 .App, html, body, #root {
   /* text-align: center; */
-  font-family: 'Space Mono', monospace;
+  font-family: 'Sora', sans-serif;
+  background-color: var(--light-cyan);
   height: 100%;
 }
 
@@ -12,6 +22,7 @@ ul {
   justify-content: space-around;
   margin: 0;
   width: 100%;
+  align-items: center;
 }
 
 ul li {
@@ -20,9 +31,9 @@ ul li {
 }
 
 h1 {
-  /* font-family: 'Rye', cursive; */
-  text-transform: uppercase;
-  font-family: 'Yeseva One', cursive;
+  font-family: 'Sora', sans-serif;
+  font-size: 2.7rem;
+  letter-spacing: 3px;
 }
 
 .auth-page {
@@ -32,7 +43,9 @@ h1 {
 }
 
 h3 {
-  font-family: 'Yeseva One', cursive;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
 }
 
 .auth-forms {
@@ -42,28 +55,34 @@ h3 {
 form {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  /* width: 200px; */
   align-items: flex-start;
   justify-content: space-between;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: 10px;
+  padding: 15px 35px;
+  /* border: 1px solid black; */
+  background-color: var(--white);
+  color: var(--cornsilk);
+  border-radius: 5px;
+  margin: 15px;
 }
 
 label {
   display: flex;
   flex-direction: column;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Sora', sans-serif;
+  margin-top: 20px;
 }
 
 button {
-  font-family: 'Yeseva One', cursive;
-  /* font-family: 'Space Mono', monospace;   */
+  font-family: 'Sora', sans-serif;
   text-transform: uppercase;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 4px;
+  background-color: black;
+  color: lightcyan;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 nav {
@@ -71,15 +90,19 @@ nav {
   box-shadow: 0px 1px 10px black;
   display: flex;
   align-items: center;
+  background-color: white;
 }
 
-nav li {
-  font-family: 'Yeseva One', cursive;
-  /* font-family: 'Space Mono', monospace; */
+nav li a {
+  font-family: 'Sora', sans-serif;
   text-transform: uppercase;
   background-color: white;
-  border-radius: 4px;
-  
+  color: black;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 li:hover {
@@ -87,7 +110,7 @@ li:hover {
 }
 
 button:hover {
-  opacity: .5;
+  background-color: var(--orange-peel);
   cursor: pointer;
 }
 
@@ -97,20 +120,35 @@ form button {
 
 input {
   margin-bottom: 15px;
+  margin-top: 5px;
+  font-family: 'Sora', sans-serif;
+  border: 1px solid gray;
+  border-radius: 2px;
+  padding: 5px;
+  background-color: var(--light-cyan);
 }
 
 nav button {
   border: none;
   font-size: 1rem;
+  color: black;
+  background-color: white;
 }
 
 .book-data {
   color: black;
-  width: 150px;
-  border: 1px solid black;
+  width: 140px;
+  height: 190px;
+  background-color: white;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
   margin: 10px;
+  line-height: 23px;
+}
+
+.book-data:hover {
+  opacity: .6;
+  background-color: var(--light-cyan);
 }
 
 .list-page {
@@ -137,16 +175,15 @@ nav button {
 .delete-btn {
   opacity: .6;
   color: white;
-  background-color: black;
-  font-weight: 500;
+  background-color: var(--tiffany-blue);
+  font-weight: 600;
   padding: 5px;
   letter-spacing: 1px;
 }
 
 .delete-btn:hover {
-  background-color: indianred;
+  background-color: var(--orange-peel);
   opacity: 1;
-  border: 1px solid indianred;
 }
 
 .error {
@@ -155,9 +192,9 @@ nav button {
 }
 
 h2 {
-  text-transform: capitalize;
   letter-spacing: 3px;
-  font-family: 'Yeseva One', cursive;
+  font-family: 'Sora', sans-serif;
+  font-size: 2rem;
 }
 
 .create {

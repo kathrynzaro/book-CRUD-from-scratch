@@ -31,7 +31,7 @@ export default function AuthPage({ setUser }) {
 
   return (
     <div className='auth-page'>
-      <h1>Boooooks</h1>
+      <h1>The Lonely Bookshelf</h1>
       <h3 className='error'>{error}</h3>
       <div className='auth-forms'>
         <form onSubmit={handleSignUpSubmit}>
