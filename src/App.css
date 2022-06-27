@@ -12,7 +12,7 @@ body {
 .App, html, body, #root {
   /* text-align: center; */
   font-family: 'Sora', sans-serif;
-  background-color: var(--light-cyan);
+  background-color: white;
   height: 100%;
 }
 
@@ -50,20 +50,20 @@ h3 {
 
 .auth-forms {
   display: flex;
+  padding: 15px 35px;
+  background-color: var(--light-cyan);
+  border-radius: 5px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  /* width: 200px; */
   align-items: flex-start;
   justify-content: space-between;
-  padding: 15px 35px;
-  /* border: 1px solid black; */
-  background-color: var(--white);
-  color: var(--cornsilk);
-  border-radius: 5px;
   margin: 15px;
+  padding: 25px;
+  background-color: var(--light-cyan);
+  border-radius: 5px;
 }
 
 label {
@@ -125,7 +125,7 @@ input {
   border: 1px solid gray;
   border-radius: 2px;
   padding: 5px;
-  background-color: var(--light-cyan);
+  background-color: white;
 }
 
 nav button {
@@ -139,16 +139,15 @@ nav button {
   color: black;
   width: 140px;
   height: 190px;
-  background-color: white;
-  border-radius: 10px;
+  background-color: var(--light-cyan);
+  border-radius: 3px;
   padding: 20px;
   margin: 10px;
   line-height: 23px;
 }
 
 .book-data:hover {
-  opacity: .6;
-  background-color: var(--light-cyan);
+  background-color: var(--mellow-apricot);
 }
 
 .list-page {
