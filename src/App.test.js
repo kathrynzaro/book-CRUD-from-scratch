@@ -1,1 +1,1 @@
-test('fake test', () => expect(true).toBe(true))
+test('fake test', () => expect(true).toBe(true));
